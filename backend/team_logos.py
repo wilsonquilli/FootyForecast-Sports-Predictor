@@ -1,0 +1,20 @@
+TEAM_LOGOS = {
+    "Arsenal": "https://resources.premierleague.com/premierleague/badges/70/t3.png",
+    "Aston Villa": "https://resources.premierleague.com/premierleague/badges/70/t7.png",
+    "Bournemouth": "https://resources.premierleague.com/premierleague/badges/70/t91.png",
+    "Brentford": "https://resources.premierleague.com/premierleague/badges/70/t94.png",
+    "Brighton": "https://resources.premierleague.com/premierleague/badges/70/t36.png",
+    "Chelsea": "https://resources.premierleague.com/premierleague/badges/70/t8.png",
+    "Crystal Palace": "https://resources.premierleague.com/premierleague/badges/70/t31.png",
+    "Everton": "https://resources.premierleague.com/premierleague/badges/70/t11.png",
+    "Fulham": "https://resources.premierleague.com/premierleague/badges/70/t54.png",
+    "Liverpool": "https://resources.premierleague.com/premierleague/badges/70/t14.png",
+    "Man City": "https://resources.premierleague.com/premierleague/badges/70/t43.png",
+    "Man United": "https://resources.premierleague.com/premierleague/badges/70/t1.png",
+    "Newcastle": "https://resources.premierleague.com/premierleague/badges/70/t4.png",
+    "Nottingham Forest": "https://resources.premierleague.com/premierleague/badges/70/t17.png",
+    "Southampton": "https://resources.premierleague.com/premierleague/badges/70/t20.png",
+    "Spurs": "https://resources.premierleague.com/premierleague/badges/70/t6.png",
+    "West Ham": "https://resources.premierleague.com/premierleague/badges/70/t21.png",
+    "Wolves": "https://resources.premierleague.com/premierleague/badges/70/t39.png"
+}

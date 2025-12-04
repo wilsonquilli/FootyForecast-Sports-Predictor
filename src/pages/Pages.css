@@ -1,0 +1,1206 @@
+/* ========================================================================
+   GLOBAL BASE STYLES (UNIVERSAL)
+   ======================================================================== */
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: #ffffff;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.page {
+  padding: 2rem 1.5rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========================================================================
+   HOME PAGE — GRADIENT + SMOKE BACKGROUND + VIDEO HERO
+   ======================================================================== */
+
+.home-page {
+  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+  color: #f8f8f8;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Smoke animation layer */
+.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('../assets/smoke.png') repeat;
+  opacity: 0.05;
+  animation: smokeMove 60s linear infinite, smokeFloat 20s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes smokeMove {
+  0%   { background-position: 0 0; }
+  100% { background-position: 2000px 1000px; }
+}
+
+@keyframes smokeFloat {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(20px, 10px) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* HERO VIDEO */
+.home-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.video {
+  max-width: 1250px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.video video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px #00e676, 0 0 60px #00e67644;
+}
+
+/* Home page headings */
+.home-page h1 {
+  text-align: center;
+  margin: 3rem 0 2rem;
+  color: #00e676;
+  font-weight: 900;
+}
+
+/* Home feature boxes */
+.home-premier-league,
+.home-laliga,
+.home-nfl {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.home-premier-league:hover,
+.home-laliga:hover,
+.home-nfl:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+}
+
+.home-league-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.home-league-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.home-league-copy h1 {
+  margin: 0;
+  text-align: left;
+}
+
+.home-league-copy p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.home-premier-league img,
+.home-laliga img,
+.home-nfl img {
+  max-width: 120px;
+  width: 100%;
+  filter: drop-shadow(0 0 4px #000);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .home-page h1 {
+    font-size: 1.6rem;
+  }
+
+  .video {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-premier-league,
+  .home-laliga,
+  .home-nfl {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .home-league-copy {
+    align-items: center;
+  }
+
+  .home-league-copy h1 {
+    text-align: center;
+  }
+}
+
+/* ========================================================================
+   PREMIER LEAGUE THEME (DARK PURPLE)
+   ======================================================================== */
+
+:root {
+  --pl-bg: #1a0b2e;
+  --pl-card: #2b1247;
+  --pl-header: #532480;
+  --pl-gold: #ffce00;
+  --pl-text: white;
+  --pl-gray: #cccccc;
+}
+
+.premier-league-page {
+  position: relative;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 206, 0, 0.1), transparent 35%),
+    radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.08), transparent 45%),
+    linear-gradient(180deg, #120421 0%, #1d0b35 40%, #2b1247 100%);
+  border-radius: 18px;
+  padding: 2.5rem 1.4rem 4.5rem;
+  color: var(--pl-text);
+  min-height: 100vh;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.premier-league-page::before,
+.premier-league-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.premier-league-page::before {
+  background: linear-gradient(135deg, rgba(255, 206, 0, 0.12), transparent 45%);
+  filter: blur(8px);
+  opacity: 0.8;
+}
+
+.premier-league-page::after {
+  background: linear-gradient(180deg, transparent 75%, rgba(83, 36, 128, 0.4));
+  mix-blend-mode: screen;
+}
+
+/* Section titles */
+.premier-league-page .section-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #f5e8ff;
+  margin-top: 2.5rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.03em;
+}
+
+.premier-league-page .page-title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  text-align: center;
+  color: #f8f0ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 1.8rem auto 1rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  max-width: 860px;
+}
+
+.premier-league-page .page-title::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--pl-gold), transparent);
+  border-radius: 999px;
+  position: absolute;
+  left: 50%;
+  bottom: 0.25rem;
+  transform: translateX(-50%);
+}
+
+/* Match grid */
+.premier-league-page .matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.premier-league-page .match-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0)),
+    var(--pl-card);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 20px 18px 18px;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+
+.premier-league-page .match-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 206, 0, 0.6);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.55);
+}
+
+.premier-league-page .match-card::before {
+  content: "";
+  position: absolute;
+  inset: -40% 50% auto -40%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 206, 0, 0.15), transparent 55%);
+  transform: rotate(8deg);
+  opacity: 0.8;
+}
+
+.premier-league-page .match-card .match-date,
+.premier-league-page .match-card .match-venue {
+  color: #e4d8ff;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+.premier-league-page .match-teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.premier-league-page .team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 45%;
+}
+
+.premier-league-page .team-name {
+  font-weight: 800;
+  color: #fdfaff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.premier-league-page .vs {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--pl-gold);
+  background: rgba(255, 206, 0, 0.12);
+  border: 1px solid rgba(255, 206, 0, 0.4);
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premier-league-page .team-logo {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 4px #000);
+}
+
+
+.premier-league-page .matchday-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 1.2rem 1.3rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  margin: 1.5rem 0;
+}
+
+.premier-league-page .matchday-section label,
+.premier-league-page .matchday-section select {
+  font-weight: 700;
+  color: #f0e7ff;
+}
+
+.premier-league-page .matchday-section select {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 206, 0, 0.5);
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: white;
+  outline: none;
+  margin: 0 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.premier-league-page .prediction-block {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 206, 0, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: #f7efff;
+}
+
+.premier-league-page .prediction-block strong {
+  color: var(--pl-gold);
+}
+
+.premier-league-page .predicted-score {
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+/* Status badges */
+.premier-league-page .status-upcoming {
+  background: rgba(255,255,255,0.12);
+  color: var(--pl-gold);
+}
+
+.premier-league-page .status-ft {
+  background: var(--pl-gold);
+  color: black;
+}
+
+/* Table */
+.premier-league-page .table-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem 1.2rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.premier-league-page .table-wrapper {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  border-radius: 14px;
+  padding: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.pl-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--pl-card);
+  color: white;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+}
+
+.pl-table thead {
+  background: linear-gradient(90deg, #532480, #7133ad);
+}
+
+.pl-table th {
+  padding: 12px;
+  font-weight: 900;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pl-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  color: #f1e9ff;
+}
+
+.pl-table tbody tr:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.premier-league-page .pl-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pl-table .rank-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+}
+
+.pl-table .rank-number {
+  width: 22px;
+  text-align: right;
+}
+
+.pl-table .team-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.premier-league-page .player-cell {
+  align-items: center;
+  gap: 12px;
+}
+
+.premier-league-page .player-photo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+  background: #0e1220;
+}
+
+.premier-league-page .player-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.premier-league-page .player-name {
+  font-weight: 800;
+}
+
+.premier-league-page .player-team-sub {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.premier-league-page .goal-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--pl-gold);
+  color: #1a0f00;
+  font-weight: 900;
+  min-width: 48px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.top-scorers-table td {
+  vertical-align: middle;
+}
+
+.top-scorers-table .top-scorer-team-cell {
+  gap: 10px;
+}
+
+.top-scorers-table .goals-cell {
+  text-align: justify;
+}
+
+.pl-table .table-team-logo {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 0 3px #000);
+}
+
+/* Form badges */
+.form-badge {
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+}
+
+.form-w { background: #00c853; }
+.form-d { background: #fdd835; color: #222; }
+.form-l { background: #d32f2f; }
+
+/* ========================================================================
+   LALIGA THEME (WHITE + RED + GOLD)
+   ======================================================================== */
+
+.laliga-page {
+  --ll-red: #d00000;
+  --ll-orange: #ff6f3c;
+  --ll-cream: #fff7f3;
+  --ll-gold: #ffcc00;
+
+  background: radial-gradient(circle at 15% 20%, rgba(255, 204, 0, 0.12), transparent 35%),
+    radial-gradient(circle at 85% 15%, rgba(255, 111, 60, 0.12), transparent 40%),
+    linear-gradient(180deg, #ffffff 0%, #fff7f3 45%, #ffffff 100%);
+  color: #1d1d1d;
+  padding: 2.4rem 1.2rem 4rem;
+  min-height: 100vh;
+  overflow-y: visible;
+}
+
+.laliga-page .page-title {
+  color: var(--ll-red);
+  text-align: center;
+  font-size: 2.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 1.6rem auto 1.1rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.laliga-page .page-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--ll-orange), var(--ll-red), transparent);
+}
+
+.laliga-page .section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ll-red);
+  margin: 2rem 0 0.65rem;
+  letter-spacing: 0.03em;
+}
+
+.laliga-page .section-divider {
+  background: linear-gradient(90deg, transparent, var(--ll-red), var(--ll-orange), transparent);
+  height: 3px;
+  width: 92%;
+  margin: 2.2rem auto;
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+/* Match Grid */
+.laliga-page .matchday-section {
+  background: white;
+  border: 1px solid rgba(208, 0, 0, 0.15);
+  border-radius: 14px;
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 12px 30px rgba(208, 0, 0, 0.12);
+}
+
+.laliga-page .matchday-section label,
+.laliga-page .matchday-section select {
+  font-weight: 700;
+  color: #3a3a3a;
+}
+
+.laliga-page .matchday-section select {
+  background: #fff7f3;
+  border: 1px solid rgba(208, 0, 0, 0.35);
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: #b00000;
+  outline: none;
+  margin: 0 6px;
+  box-shadow: 0 6px 16px rgba(208, 0, 0, 0.12);
+}
+
+.laliga-page .matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.6rem;
+  margin-top: 1.2rem;
+}
+
+.laliga-page .match-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 247, 243, 0.95));
+  border: 1px solid rgba(208, 0, 0, 0.16);
+  border-radius: 18px;
+  padding: 1.4rem 1.35rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.laliga-page .match-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 111, 60, 0.12), rgba(208, 0, 0, 0.08));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.laliga-page .match-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(208, 0, 0, 0.4);
+  box-shadow: 0 18px 32px rgba(208, 0, 0, 0.18);
+}
+
+.laliga-page .match-card:hover::before {
+  opacity: 1;
+}
+
+.laliga-page .match-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.laliga-page .team-logo {
+  width: 42px;
+  height: 42px;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.15));
+}
+
+.laliga-page .match-teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.laliga-page .team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 46%;
+}
+
+.laliga-page .team-name {
+  font-weight: 800;
+  color: #1c1c1c;
+}
+
+.laliga-page .vs {
+  color: var(--ll-red);
+  font-weight: 900;
+  background: rgba(208, 0, 0, 0.08);
+  border: 1px solid rgba(208, 0, 0, 0.22);
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.laliga-page .match-date,
+.laliga-page .match-venue {
+  color: #4b4b4b;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+.laliga-page .status-msg {
+  color: #5a1a1a;
+}
+
+.laliga-page .prediction-block {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 247, 243, 0.9);
+  border: 1px solid rgba(208, 0, 0, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 204, 0, 0.1);
+  color: #2c2c2c;
+}
+
+.laliga-page .prediction-block strong {
+  color: var(--ll-red);
+}
+
+.laliga-page .predicted-score {
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.laliga-page .status-upcoming {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--ll-orange), var(--ll-gold));
+  color: #2c1400;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.laliga-page .status-ft {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--ll-red);
+  color: white;
+  font-weight: 800;
+}
+
+/* Table */
+.laliga-page .table-section,
+.laliga-page .top-scorers-section {
+  background: #fff;
+  border: 1px solid rgba(208, 0, 0, 0.12);
+  border-radius: 16px;
+  padding: 1.4rem 1.2rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+}
+
+.laliga-page .table-wrapper {
+  overflow-x: auto;
+}
+
+.laliga-page .ll-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  color: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(208, 0, 0, 0.1);
+}
+
+.laliga-page .ll-table thead {
+  background: linear-gradient(90deg, var(--ll-red), var(--ll-orange));
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.laliga-page .ll-table th {
+  padding: 14px;
+  font-size: 1.02rem;
+  font-weight: 800;
+}
+
+.laliga-page .ll-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.laliga-page .ll-table tr:nth-child(even) {
+  background: #fff8f6;
+}
+
+.laliga-page .ll-table tr:hover {
+  background: #fff2ec;
+}
+
+.laliga-page .table-team-logo {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.25));
+}
+
+.laliga-page .team-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.laliga-page .player-badge {
+  background: var(--ll-red);
+  color: white;
+  border-radius: 50%;
+  padding: 8px 12px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(208, 0, 0, 0.22);
+}
+
+.laliga-page .player-cell {
+  align-items: center;
+  gap: 12px;
+}
+
+.laliga-page .player-photo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--ll-gold);
+  box-shadow: 0 4px 10px rgba(208, 0, 0, 0.2);
+  object-fit: cover;
+  background: #fff4f4;
+}
+
+.laliga-page .player-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.laliga-page .player-name {
+  font-weight: 800;
+}
+
+.laliga-page .top-scorer-team-cell {
+  gap: 10px;
+}
+
+.laliga-page .goals-cell {
+  text-align: center;
+}
+
+.laliga-page .goal-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--ll-gold);
+  color: #222;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(208, 0, 0, 0.2);
+}
+
+/* Make sure scroll & overflow are clean */
+.laliga-page * {
+  overflow: visible;
+}
+
+/* ============================================================
+   NFL PAGE — AMERICAN RED / WHITE / BLUE THEME
+   Fully scoped ONLY to .nfl-page
+============================================================ */
+
+.nfl-page {
+  --nfl-navy: #0A1A33;
+  --nfl-red: #D00000;
+  --nfl-white: #ffffff;
+  --nfl-silver: #d9d9d9;
+
+  --nfl-card-bg: #ffffff;
+  --nfl-border: rgba(0,0,0,0.08);
+  --nfl-shadow: rgba(0,0,0,0.20);
+
+  position: relative;
+  padding: 2rem 1rem 4rem;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* Fallback if parallax fails */
+  background: var(--nfl-white);
+}
+
+/* ---------- Page Titles ---------- */
+.nfl-page .page-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  text-align: center;
+  color: var(--nfl-navy);
+  margin: 2rem 0 1rem;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.nfl-page .page-title::after {
+  content: "";
+  width: 110px;
+  height: 6px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--nfl-red), var(--nfl-white), var(--nfl-navy));
+  display: block;
+  margin: 10px auto 0;
+  box-shadow: 0 0 12px rgba(0,0,0,0.25);
+}
+
+/* ---------- Section Header ---------- */
+.nfl-page .section-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--nfl-navy);
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Divider ---------- */
+.nfl-page .section-divider {
+  height: 3px;
+  width: 90%;
+  margin: 2.5rem auto;
+  background: linear-gradient(90deg, var(--nfl-red), var(--nfl-navy));
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   MATCH CARDS (Upcoming + Recent)
+============================================================ */
+
+.nfl-page .matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 1.6rem;
+}
+
+.nfl-match-card {
+  background: var(--nfl-card-bg);
+  border: 2px solid var(--nfl-border);
+  border-radius: 16px;
+  padding: 1.4rem;
+  box-shadow: 0 4px 14px var(--nfl-shadow);
+  transition: all 0.25s ease;
+  animation: nflFadeUp 0.6s ease;
+  backdrop-filter: blur(2px);
+}
+
+.nfl-match-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  border-color: var(--nfl-navy);
+}
+
+@keyframes nflFadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.nfl-match-card .match-teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nfl-match-card .team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nfl-page .team-logo {
+  width: clamp(48px, 9vw, 64px);
+  height: clamp(48px, 9vw, 64px);
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #e4e4e4;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.25));
+}
+
+.nfl-match-card .team-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--nfl-navy);
+}
+
+.nfl-match-card .vs {
+  font-size: 1.3rem;
+  color: var(--nfl-red);
+  font-weight: 900;
+}
+
+.nfl-page .match-date,
+.nfl-page .match-venue {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Status badges */
+.nfl-page .status-upcoming {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--nfl-navy);
+  color: var(--nfl-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.nfl-page .status-ft {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--nfl-red);
+  color: var(--nfl-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ============================================================
+   NFL Standings Table
+============================================================ */
+
+.nfl-page .nfl-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--nfl-white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--nfl-shadow);
+}
+
+.nfl-page .nfl-table thead {
+  background: var(--nfl-navy);
+  color: white;
+}
+
+.nfl-page .nfl-table th {
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.nfl-page .nfl-table td {
+  padding: 13px;
+  border-bottom: 1px solid #e6e6e6;
+  color: #222;
+}
+
+.nfl-page .nfl-table tr:hover {
+  background: #eef4ff;
+}
+
+.nfl-page .team-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nfl-page .table-team-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #e4e4e4;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.25));
+}
+
+/* ============================================================
+   NFL Top Scorers
+============================================================ */
+
+.nfl-page .player-badge {
+  background: var(--nfl-red);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   Predictions Placeholder
+============================================================ */
+
+.nfl-page .predictions-placeholder {
+  background: #fafafa;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--nfl-navy);
+  font-weight: 700;
+  box-shadow: 0 4px 12px var(--nfl-shadow);
+}
+
+/* Reuse match card styling inside the predictions grid */
+.nfl-page .prediction-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.nfl-page .prediction-card .prediction-block {
+  padding: 0.5rem 0.75rem;
+  background: #f7f7f7;
+  border-radius: 10px;
+  color: var(--nfl-navy);
+  line-height: 1.4;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 700px) {
+  .nfl-page .matches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nfl-page .team-logo {
+    width: clamp(38px, 12vw, 54px);
+    height: clamp(38px, 12vw, 54px);
+  }
+}
+
+/* ============================================================
+   NFL PARALLAX FLAG BACKGROUND — DARKER + MORE VISIBLE
+============================================================ */
+
+.nfl-page::before,
+.nfl-page::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 140%;
+  height: 140%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Deep, high-contrast flag */
+.nfl-page::before {
+  background-image: url('/src/assets/usa-flag.png');
+  opacity: 0.32; /* darker + more visible */
+  filter: contrast(1.3) brightness(0.7) saturate(1.4);
+  animation: nflParallax1 38s linear infinite;
+}
+
+/* Soft overlay to increase visibility */
+.nfl-page::after {
+  background-image: url('/src/assets/american_flag.jpg');
+  opacity: 0.18; /* slightly darker */
+  filter: contrast(1.2) brightness(0.85);
+  animation: nflParallax2 65s linear infinite;
+}
+
+@keyframes nflParallax1 {
+  0% { transform: translate3d(0px, 0px, 0); }
+  100% { transform: translate3d(-320px, -180px, 0); }
+}
+
+@keyframes nflParallax2 {
+  0% { transform: translate3d(0px, 0px, 0); }
+  100% { transform: translate3d(260px, 160px, 0); }
+}
